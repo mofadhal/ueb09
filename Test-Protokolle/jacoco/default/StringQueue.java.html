@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StringQueue.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ueb09Maven</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">StringQueue.java</span></div><h1>StringQueue.java</h1><pre class="source lang-java linenums">import java.util.Arrays;
+/**
+ * StringQueue Klasse zur Implementierung von Queue.
+ *
+ * @author  (Mofadhal Al-Manari und Leen Alkhadraa)
+ * @version (02.02.2021)
+ */
+public class StringQueue implements Queue {
+    private String[] mofe;
+    private int size;
+    private int lastEle;
+    
+    /**
+     * StringQueue Constructor um die Größe des Arrays überzugeben
+     *
+     * @param size als parameter übergeben
+     */
+<span class="fc" id="L18">    public StringQueue (int size){</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (size &lt;= 0 ){</span>
+<span class="fc" id="L20">            throw new IllegalArgumentException(&quot;Size muss grosser als 0 sein&quot;);</span>
+        }
+<span class="fc" id="L22">        mofe = new String[size];</span>
+<span class="fc" id="L23">        this.size = size;</span>
+<span class="fc" id="L24">        lastEle = 0;</span>
+<span class="fc" id="L25">    }</span>
+    
+    /**
+     *  Method addLast um Objekt hinten anzufuegen
+     *
+     * @param o als parameter 
+     */
+    @Override
+    public void addLast(Object o) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">       if (lastEle &gt;= size ){</span>
+<span class="fc" id="L35">        throw new RuntimeException(&quot;Die Schlange ist bereit Voll !!&quot;);</span>
+       }
+<span class="fc bfc" id="L37" title="All 4 branches covered.">       if (!(o instanceof String || o == null)){</span>
+<span class="fc" id="L38">        throw new IllegalArgumentException(&quot;Die Schlange muss String sein&quot;);</span>
+       }
+<span class="fc" id="L40">      mofe[lastEle] = (String) o;</span>
+<span class="fc" id="L41">       lastEle++;</span>
+<span class="fc" id="L42">    }</span>
+
+    /**
+     *  Method removeFirst diese Methode entfernt das erste Element und gibt eine Referenz darauf zurück
+     *
+     *  @return gibt eine Referenz auf das erste gelöchte Element zurück
+     */
+    @Override
+    public Object removeFirst() {
+
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (lastEle &lt;= 0){</span>
+<span class="fc" id="L53">            throw new RuntimeException(&quot;Die Schlange ist leer&quot;);</span>
+        }
+<span class="fc" id="L55">        String FirstEle = mofe[0];</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for (int i = 0; i &lt; lastEle -1 ; i++) {</span>
+<span class="fc" id="L57">            mofe[i] = mofe[i + 1];</span>
+        }
+<span class="fc" id="L59">        lastEle--;</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">        if (lastEle &lt; size){</span>
+<span class="fc" id="L61">            mofe[lastEle] = null ;</span>
+        }
+<span class="fc" id="L63">        return FirstEle;</span>
+    }
+
+    /**
+     * Method get das i-te Element zurückgeben 
+     *
+     * @param indesBasedOne A parameter
+     * @return das i-te Element
+     */
+    @Override
+    public Object get(int indesBasedOne) {
+<span class="fc" id="L74">        int i = indesBasedOne -1 ;</span>
+<span class="pc bpc" id="L75" title="2 of 6 branches missed.">        if (i &lt;= 0 || i &gt;= lastEle || i &gt;= size /*unmöglich aber aus sicherheit*/){</span>
+<span class="fc" id="L76">            throw new IllegalArgumentException(&quot;indesBasedOne ist nicht gültig&quot;);</span>
+        }
+<span class="fc" id="L78">        return mofe[i];</span>
+        /***
+        String tempGet = mofe[i];
+        for (int j = i; j &lt; lastEle -1; j++) {
+            mofe[j] = mofe[j + 1];
+        }
+        lastEle--;
+        if (lastEle &lt; size){
+            mofe[lastEle] = null ;
+        }
+        return tempGet;
+        */
+    }
+
+    /**
+     * Method empty überprüft ob die StringQueue leer ist 
+     *
+     * @return true ob die StringQueue leer ist und false ob die StringQueue nicht leer ist 
+     */
+    @Override
+    public boolean empty() {
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        return lastEle == 0;</span>
+    }
+
+    /**
+     * Method full  überprüft ob die StringQueue full ist 
+     *
+     * @return  true ob die StringQueue full ist und false ob die StringQueue nicht full ist 
+     */
+    @Override
+    public boolean full() {
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        return lastEle &gt;= size;</span>
+    }
+
+    /**
+     * Method size gibt die Größe zurück
+     *
+     * @return die Größe 
+     */
+    @Override
+    public int size() {
+<span class="fc" id="L119">        return lastEle;</span>
+    }
+
+    /**
+     * Method toString um die Objekte aufzubereiten
+     *
+     * @return die Objekte 
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L129">        return</span>
+                &quot;size = &quot; + size +
+                &quot;, lastEle = &quot; + lastEle +
+<span class="nc" id="L132">                &quot;\nQueue = &quot;+ Arrays.toString(mofe) ;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Person.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ueb09Maven</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Person.java</span></div><h1>Person.java</h1><pre class="source lang-java linenums">import java.util.Objects;
+/**
+ *  Person Klasse zum Behalten der PersonenInformationen (Vor- Nachname)
+ *
+ * @author  (Mofadhal Al-Manari und Leen Alkhadraa)
+ * @version (02.02.2021)
+ */
+public class Person {
+    private String name;
+    private String vorName;
+
+    /**
+     * Person Constructor um neue Objekte zu erzeugen
+     *
+     * @param vorName und  parameter
+     * @param name und parameter
+     */
+<span class="fc" id="L18">    public Person() {}</span>
+
+<span class="fc" id="L20">    public Person(String vorName, String name) {</span>
+<span class="pc bpc" id="L21" title="4 of 8 branches missed.">        if (vorName == null || name == null || vorName.isEmpty() || name.isEmpty()){</span>
+<span class="nc" id="L22">            throw new IllegalArgumentException();</span>
+        }
+<span class="fc" id="L24">        this.name = name;</span>
+<span class="fc" id="L25">        this.vorName = vorName;</span>
+<span class="fc" id="L26">    }</span>
+
+    /**
+     * Method getVorName gibt Vorname zurück
+     *
+     * @return VorName
+     */
+    public String getVorname() {
+<span class="fc" id="L34">        return vorName;</span>
+    }
+
+    /**
+     * Method setVorName um Vorname zu ändern
+     * 
+     * @param vorName als parameter
+     */
+    public void setVorname(String vorName) {
+<span class="pc bpc" id="L43" title="2 of 4 branches missed.">        if (vorName == null  || vorName.isEmpty() ){</span>
+<span class="nc" id="L44">            throw new IllegalArgumentException();</span>
+        }
+<span class="fc" id="L46">        this.vorName = vorName;</span>
+<span class="fc" id="L47">    }</span>
+    
+    /**
+     * Method getVorName gibt Name zurück
+     *
+     * @return Name 
+     */
+    public String getName() {
+<span class="fc" id="L55">        return name;</span>
+    }
+    
+    /**
+     * Method setName um Name zu ändern
+     * 
+     * @param name als parameter
+     */
+    public void setName(String name) {
+<span class="pc bpc" id="L64" title="2 of 4 branches missed.">        if (name == null  || name.isEmpty() ){</span>
+<span class="nc" id="L65">            throw new IllegalArgumentException();</span>
+        }
+<span class="fc" id="L67">        this.name = name;</span>
+<span class="fc" id="L68">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L73" title="1 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L74">        Person person = (Person) o;</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">        return Objects.equals(name, person.name) &amp;&amp;</span>
+<span class="pc bnc" id="L76" title="All 2 branches missed.">                Objects.equals(vorName, person.vorName);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

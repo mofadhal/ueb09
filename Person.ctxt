@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Person
+comment0.text=\n\ \ Person\ Klasse\ zum\ Behalten\ der\ PersonenInformationen\ (Vor-\ Nachname)\n\n\ @author\ \ (Mofadhal\ Al-Manari\ und\ Leen\ Alkhadraa)\n\ @version\ (02.02.2021)\n
+comment1.params=vorName\ name
+comment1.target=Person(java.lang.String,\ java.lang.String)
+comment1.text=\n\ Person\ Constructor\ um\ neue\ Objekte\ zu\ erzeugen\n\n\ @param\ vorName\ und\ \ parameter\n\ @param\ name\ und\ parameter\n
+comment2.params=
+comment2.target=java.lang.String\ getVorName()
+comment2.text=\n\ Method\ getVorName\ gibt\ Vorname\ zur\u00FCck\n\n\ @return\ VorName\n
+comment3.params=vorName
+comment3.target=void\ setVorName(java.lang.String)
+comment3.text=\n\ Method\ setVorName\ um\ Vorname\ zu\ \u00E4ndern\n\ \n\ @param\ vorName\ als\ parameter\n
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment4.text=\n\ Method\ getVorName\ gibt\ Name\ zur\u00FCck\n\n\ @return\ Name\ \n
+comment5.params=name
+comment5.target=void\ setName(java.lang.String)
+comment5.text=\n\ Method\ setName\ um\ Name\ zu\ \u00E4ndern\n\ \n\ @param\ name\ als\ parameter\n
+comment6.params=o
+comment6.target=boolean\ equals(java.lang.Object)
+numComments=7
